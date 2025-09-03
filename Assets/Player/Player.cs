@@ -45,13 +45,13 @@ public class PlayerAxisLogger : MonoBehaviour
         _rigidbody.linearVelocity = rotatedMovement * _speed;
 
         // Tampilkan nilai hanya ketika tombol ditekan (bukan idle = 0)
-        if (Mathf.Abs(horizontal) > 0.01f)
-        {
-            Debug.Log("Horizontal: " + horizontal.ToString("F3")); // F3 = 3 angka di belakang koma
-        }
-        if (Mathf.Abs(vertical) > 0.01f)
-        {
-            Debug.Log("Vertical: " + vertical.ToString("F3"));
-        }
+        // if (Mathf.Abs(horizontal) > 0.01f)
+        // {
+        //     Debug.Log("Horizontal: " + horizontal.ToString("F3")); // F3 = 3 angka di belakang koma
+        // }
+        // if (Mathf.Abs(vertical) > 0.01f)
+        // {
+        //     Debug.Log("Vertical: " + vertical.ToString("F3"));
+        // }
     }
 }
