@@ -11,6 +11,13 @@ public class PlayerAxisLogger : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        HideAndLockCursor();
+    }
+
+    private void HideAndLockCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
