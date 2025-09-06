@@ -15,7 +15,7 @@ public class Pickable : MonoBehaviour
         // compare tag sangat penting untuk diferensiasi GameObject yang berinteraksi berdasarkan tag
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player mengambil " + _pickableType);
+            // Debug.Log("Player mengambil " + _pickableType);
             OnPicked(this);
             Destroy(gameObject);
         }
