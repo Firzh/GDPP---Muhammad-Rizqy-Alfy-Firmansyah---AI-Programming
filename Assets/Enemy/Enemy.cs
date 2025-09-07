@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent NavMeshAgent;
     // menentukan destinasi dari AI enemy
+    [HideInInspector]
+    public Animator Animator;
 
     public void SwitchState(BaseState state)
     {
@@ -35,6 +37,7 @@ public class Enemy : MonoBehaviour
     }
     private void Awake()
     {
+        Animator = GetComponent<Animator>();
         _currentState = PatrolState;
         _currentState.EnterState(this);
         NavMeshAgent = GetComponent<NavMeshAgent>();
