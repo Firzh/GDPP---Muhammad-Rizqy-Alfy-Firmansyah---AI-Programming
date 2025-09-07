@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                collision.gameObject.GetComponent<Enemy>().Dead();
+                collision.gameObject.GetComponent<Player>().Dead();
             }
         }
     }
