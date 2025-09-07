@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class PickableManager : MonoBehaviour
 {
+    [SerializeField]
+    private Player _player;
     private List<Pickable> _pickableList = new List<Pickable>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +31,11 @@ public class PickableManager : MonoBehaviour
     private void OnPickablePicked(Pickable pickable)
     {
         _pickableList.Remove(pickable);
+        if (pickable._pickableType == PickableType.PowerUp)
+        {
+            _player?.PickPowerUp();
+        }
+        
         Debug.Log("Pickable List: " + _pickableList.Count);
         if (_pickableList.Count <= 0)
         {

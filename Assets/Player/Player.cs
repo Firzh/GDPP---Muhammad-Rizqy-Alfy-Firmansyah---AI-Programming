@@ -1,12 +1,48 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
-public class PlayerAxisLogger : MonoBehaviour
+public class Player : MonoBehaviour
 {
+
+    public Action OnPowerUpStart;
+    public Action OnPowerUpStop;
+
     [SerializeField]
     private float _speed;
     [SerializeField]
     private Camera _camera;
+    [SerializeField]
+    private float _powerupDuration;
+    private Coroutine _powerupCoroutine;
     private Rigidbody _rigidbody;
+
+    public void PickPowerUp()
+    {
+        //  hentikan coroutin jika ada coroutine yang sedang berjalan agar dapat bertumpuk
+        if (_powerupCoroutine != null)
+        {
+            StopCoroutine(_powerupCoroutine);
+        }
+        
+        // memulai coroutine power up
+        _powerupCoroutine = StartCoroutine(StartPowerUp());
+    }
+
+    private IEnumerator StartPowerUp()
+    {
+        if (OnPowerUpStart != null)
+        {
+            OnPowerUpStart();
+        }
+
+        yield return new WaitForSeconds(_powerupDuration);
+
+        if (OnPowerUpStop != null)
+        {
+            OnPowerUpStop();
+        }
+    }
 
     private void Awake()
     {
